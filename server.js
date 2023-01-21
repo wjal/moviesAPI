@@ -1,3 +1,16 @@
+/*********************************************************************************
+*  BTI425 – Assignment 1
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  
+*  No part of this assignment has been copied manually or electronically from any other source
+*  (including web sites) or distributed to other students.
+* 
+*  Name: James Litt;e Student ID: 028496123 Date: 20/01/2023
+*  Cyclic Link: https://troubled-lamb-vestments.cyclic.app/
+*
+********************************************************************************/ 
+
+
+
 const express = require('express');
 const path = require("path");
 const cors = require('cors');
@@ -77,7 +90,8 @@ app.delete("/api/movies/:id", (req, res)=>{
   .then(data=>{
   res
     .status(200)
-    .json(data)});
+    .json(data)
+  });
 })
 
 
