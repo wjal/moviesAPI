@@ -68,13 +68,22 @@ checkImage = (data) =>{
     }
     return ``;
 }
+//check for and return if full plot is available.  if not return the plot value.  some movies dont have full plot
+checkPlot = (data) => {
+    if(data.fullplot){
+        return `<p>${data.fullplot}</p>`
+    }
+    return `<p>${data.plot}</p>`
+}
+
+
 
 createBodyContent = (data) => {
     return new Promise ((resolve, reject) => {
         let content = `
             ${checkImage(data)}<br><br>
             <strong>Directed By:</strong> ${data.directors.join(', ')}<br><br>
-            <p>${data.fullplot}</p>
+            ${checkPlot(data)}
             <strong>Cast:</strong> ${data.cast.join(', ')}<br><br>
             <strong>Awards:</strong> ${data.awards.text}<br>
             <strong>IMDB Rating:</strong> ${data.imdb.rating} (${data.imdb.votes} Votes)`
