@@ -14,7 +14,7 @@ const path = require("path");
 const cors = require('cors');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
-const MoviesDB = require("./public/modules/moviesDB.js");
+const MoviesDB = require("./modules/moviesDB.js");
 const req = require('express/lib/request');
 const { stringify } = require('querystring');
 
@@ -29,7 +29,7 @@ const httpStart = function(){
 /***************************************************************/
 /****                      MIDDLEWARE                 ****/
 /***************************************************************/
-app.use(express.static('public'))
+
 
 app.use(express.json()); // built-in body-parser
 
@@ -42,7 +42,7 @@ app.use(cors());
 
 app.get("/", (req,res) => {
     res
-      .sendFile(path.join(__dirname + '/index.html'));
+      .json({message: 'Movies'})
 });
 
 //retrieve moveis by title (optional query), page, and perPage (both required) - working
